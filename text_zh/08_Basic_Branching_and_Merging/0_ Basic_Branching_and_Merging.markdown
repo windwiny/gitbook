@@ -49,13 +49,13 @@
     $ gitk
 
 
-执行了gitk后会有一个很漂亮的图形的显示项目的历史。
+执行了gitk后会有一个很漂亮的图形界面显示项目的历史。
 
 这时你就可以删除掉你的 "experimental" 分支了(如果愿意)：
 
     $ git branch -d experimental
 
-git branch -d只能删除那些已经被当前分支的合并的分支. 如果你要强制删除某个分支的话就用git branch –D；下面假设你要强制删除一个叫"crazy-idea"的分支：
+git branch -d只能删除那些已经被当前分支合并了的分支. 如果你要强制删除某个分支的话就用git branch –D；下面假设你要强制删除一个叫"crazy-idea"的分支：
 
     $ git branch -D crazy-idea
 
