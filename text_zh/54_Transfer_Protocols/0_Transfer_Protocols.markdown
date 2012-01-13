@@ -9,7 +9,7 @@
 使用http协议, 所有的逻辑计算(logic)都是在客户端进行. 服务器不需要特别的设置, 你只要把git目录放到一个可以访问的web目录即可.
 
 
-为了能通过http访问, 当你的仓库有任何更新时, 需要运行一个命令: linkgit:git-update-server-info[0]. 因为web服务器一般不允许执行列出目录中文件的操作, 所以linkgit:git-update-server-info[0]命令把可用的打包文件(packfile)和引用(refs)列表更新到“objects/info/packs","info/refs"这个两个文件中. 当 linkgit:git-update-server-info[0] 执行后,"objects/info/packs"文件看起来就会像下面一样:
+为了能通过http访问, 当你的仓库有任何更新时, 需要运行一个命令: linkgit:git-update-server-info[0]. 因为web服务器一般不允许执行列出目录中文件的操作, 所以linkgit:git-update-server-info[0]命令把可用的打包文件(packfile)和引用(refs)列表更新到"objects/info/packs","info/refs"这个两个文件中. 当 linkgit:git-update-server-info[0] 执行后,"objects/info/packs"文件看起来就会像下面一样:
 
 	P pack-ce2bd34abc3d8ebc5922dc81b2e1f30bf17c10cc.pack
 	P pack-7ad5f5d05f5e20025898c95296fe4b9c861246d8.pack
@@ -130,7 +130,7 @@
 	0000
 
 
-每一行开始的头4个字节表示此行的长度(以16进制表示). 这块(section)信息以一行“0000”为结束标识符.
+每一行开始的头4个字节表示此行的长度(以16进制表示). 这块(section)信息以一行"0000"为结束标识符.
 
 上面这些服务器产生的数据被发送回客户端. 然后客户端用另外一个请求做为响应:
 

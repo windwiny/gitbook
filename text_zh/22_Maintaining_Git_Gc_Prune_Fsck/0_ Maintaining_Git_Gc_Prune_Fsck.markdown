@@ -12,7 +12,7 @@
 
 ### 保持可靠性 ###
 
-linkgit:git-fsck[1] 运行一些仓库的一致性检查, 如果有任何问题就会报告. 这项操作也有点耗时, 通常报的警告就是“悬空对象"(dangling objects).
+linkgit:git-fsck[1] 运行一些仓库的一致性检查, 如果有任何问题就会报告. 这项操作也有点耗时, 通常报的警告就是"悬空对象"(dangling objects).
 
     $ git fsck
     dangling commit 7281251ddd2a61e38657c827739c57015671a6b3
@@ -25,4 +25,4 @@ linkgit:git-fsck[1] 运行一些仓库的一致性检查, 如果有任何问题�
     dangling tree b24c2473f1fd3d91352a624795be026d64c8841f
     ...
 
-“悬空对象"(dangling objects)并不是问题, 最坏的情况只是它们多占了一些磁盘空间. 有时候它们是找回丢失的工作的最后一丝希望.
+"悬空对象"(dangling objects)并不是问题, 最坏的情况只是它们多占了一些磁盘空间. 有时候它们是找回丢失的工作的最后一丝希望.

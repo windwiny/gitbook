@@ -52,7 +52,7 @@ _branch_
 
 _分支_
 >
-    一个“分支”是开发过程中的(active line)。。。。
+    一个"分支"是开发过程中的(active line)。。。。
 
 _cache（缓存）_
 
@@ -83,7 +83,7 @@ _cherry-picking_
 
 _cherry-picking_
 
->   在SCM的行话里，“cherry pick“ 意味着从一系列的修改中选出一部分修改(通常是提交)，应用到当前代码中。()
+>   在SCM的行话里，"cherry pick" 意味着从一系列的修改中选出一部分修改(通常是提交)，应用到当前代码中。()
 
 
 _clean（干净）_
@@ -164,7 +164,7 @@ _fast forward_
 
 _快速向前_
 
->   “fast-forward”是一种特殊的合并,()。
+>   "fast-forward"是一种特殊的合并,()。
 >   在这种情况下，并没有创建一个合并提交(merge commit)，只是更新了版本信息。
 >   当本地分支是远端仓库(remote repository)的跟踪分支时，这种情况经常出现。
 
@@ -273,7 +273,7 @@ _merge（合并）_
 
 >   作为动词：把另外一个分支(也许来自另外一个仓库)的内容合并进当前的分支。()
 
->   作为名词：除非合并的结果是 fast forward；那么一次成功的合并会创建一个新的提交(commit)来表示这次合并，并且把合并了的分支做为此提交(commit)的父对象。这个提交(commit)也可以表述为“合并提交”(merge commit)，或者就是"合并"(merge 名词)。
+>   作为名词：除非合并的结果是 fast forward；那么一次成功的合并会创建一个新的提交(commit)来表示这次合并，并且把合并了的分支做为此提交(commit)的父对象。这个提交(commit)也可以表述为"合并提交"(merge commit)，或者就是"合并"(merge 名词)。
 
 
 _object（对象）_
@@ -302,7 +302,7 @@ _octopus（章鱼）_
 
 _origin_
 
->   默认的上游仓库(upstream repository)。每个项目至少有一个它追踪(track)的上游(upstream)仓库，通常情况 origin 就是用来表示它。你可以用 ”｀git branch -r`“ 命令查看上游仓库(upstream repository)里所有的分支，再用 origin/name-of-upstream-branch 的名字来抓取(fetch)远程追踪分支里的内容。
+>   默认的上游仓库(upstream repository)。每个项目至少有一个它追踪(track)的上游(upstream)仓库，通常情况 origin 就是用来表示它。你可以用 "｀git branch -r`" 命令查看上游仓库(upstream repository)里所有的分支，再用 origin/name-of-upstream-branch 的名字来抓取(fetch)远程追踪分支里的内容。
 
 _pack（包）_
 
@@ -392,7 +392,7 @@ _reflog_
 
 _refspec_
 
->   "refspec"用于描述在抓取和推的过程中，远程ref和本地ref之间的映射关系。它用冒号连接：<src>:<dst>，前面也可以加一个加号：“+“。
+>   "refspec"用于描述在抓取和推的过程中，远程ref和本地ref之间的映射关系。它用冒号连接：<src>:<dst>，前面也可以加一个加号："+"。
 >   例如：`git fetch $URL refs/heads/master:refs/heads/origin` 意味着：从$URL抓取主分支的 head 并把它保存到本地的origin分支的head中。`git push $URL refs/heads/master:refs/heads/to-upstream` 意味着：把我本地主分支 head 推到$URL上的 to-upstream分支里。具体可以参见： linkgit:git-push[1]。
 
 _repository_
@@ -450,7 +450,7 @@ _tag（标签）_
 
 _tag object（标签对象）_
 
->   一个含有指向其它对象的引用(ref)的对象，对象里包括注释消息。如果它里面可以含有一个PGP签名，那么就称为一个“签名标签对象”(signed tag object)。
+>   一个含有指向其它对象的引用(ref)的对象，对象里包括注释消息。如果它里面可以含有一个PGP签名，那么就称为一个"签名标签对象"(signed tag object)。
 
 _topic branch_
 

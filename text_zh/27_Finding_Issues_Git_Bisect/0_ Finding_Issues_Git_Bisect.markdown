@@ -9,7 +9,7 @@
     [65934a9a028b88e83e2b0f8b36618fe503349f8e] BLOCK: Make USB storage depend on SCSI rather than selecting it [try #6]
 
 
-如果你现在运行"git branch",　会发现你现在所在的是"no branch"(译者注:这是进行git bisect的一种状态).  这时分支指向提交（commit):"69543", 此提交刚好是在"v2.6.18"和“master"中间的位置.  现在在这个分支里,　编译并测试项目代码, 查看它是否崩溃(crash). 假设它这次崩溃了, 那么运行下面的命令:
+如果你现在运行"git branch",　会发现你现在所在的是"no branch"(译者注:这是进行git bisect的一种状态).  这时分支指向提交（commit):"69543", 此提交刚好是在"v2.6.18"和"master"中间的位置.  现在在这个分支里,　编译并测试项目代码, 查看它是否崩溃(crash). 假设它这次崩溃了, 那么运行下面的命令:
 
     $ git bisect bad
     Bisecting: 1769 revisions left to test after this
@@ -36,6 +36,6 @@
     $ git reset --hard fb47ddb2db...
 
 
-然后进行测试, 再根据测试結果执行”bisect good"或是"bisect bad"; 就这样反复执行, 直到找出问题为止.
+然后进行测试, 再根据测试結果执行"bisect good"或是"bisect bad"; 就这样反复执行, 直到找出问题为止.
 
 译者注: 关于"git bisect start"后的分支状态, 译文和原文不一致. 原文是说执行"git bisect start"后会创建一个名为"bisect"的分支, 但是实际情况却是处于"no branch"的状态.

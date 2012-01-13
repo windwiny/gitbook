@@ -22,7 +22,7 @@ git://协议较为快速和有效,但是有时必须使用http协议,比如你�
 
 ### 初始化一个新的仓库 ###
 
-现在假设有一个叫”project.tar.gz”的压缩文件里包含了你的一些文件，你可以用下面的命令让它置于Git的版本控制管理之下.
+现在假设有一个叫"project.tar.gz"的压缩文件里包含了你的一些文件，你可以用下面的命令让它置于Git的版本控制管理之下.
 
     $ tar xzf project.tar.gz
     $ cd project
@@ -33,7 +33,7 @@ Git会输出:
     Initialized empty Git repository in .git/
 
 
-如果你仔细观查会发现project目录下会有一个名叫”.git” 的目录被创建，这意味着一个仓库被初始化了。
+如果你仔细观查会发现project目录下会有一个名叫".git" 的目录被创建，这意味着一个仓库被初始化了。
 
 [gitcast:c1_init](GitCast #1 - setup, init and cloning)
 

@@ -1,6 +1,6 @@
 ## 分支与合并@基础 ##
 
-一个Git仓库可以维护很多开发分支。现在我们来创建一个新的叫”experimental”的分支：
+一个Git仓库可以维护很多开发分支。现在我们来创建一个新的叫"experimental"的分支：
 
     $ git branch experimental
 
@@ -13,26 +13,26 @@
       experimental
     * master
 
-“experimental” 分支是你刚才创建的，“master”分支是Git系统默认创建的主分支。星号(“*”)标识了你当工作在哪个分支下，输入：
+"experimental" 分支是你刚才创建的，"master"分支是Git系统默认创建的主分支。星号("*")标识了你当工作在哪个分支下，输入：
 
     $ git checkout experimental
 
-切换到”experimental”分支，先编辑里面的一个文件，再提交(commit)改动，最后切换回 “master”分支。
+切换到"experimental"分支，先编辑里面的一个文件，再提交(commit)改动，最后切换回 "master"分支。
 
     (edit file)
     $ git commit -a
     $ git checkout master
 
 
-你现在可以看一下你原来在“experimental”分支下所作的修改还在不在；因为你现在切换回了“master”分支，所以原来那些修改就不存在了。
+你现在可以看一下你原来在"experimental"分支下所作的修改还在不在；因为你现在切换回了"master"分支，所以原来那些修改就不存在了。
 
-你现在可以在“master”分支下再作一些不同的修改:
+你现在可以在"master"分支下再作一些不同的修改:
 
     (edit file)
     $ git commit -a
 
 
-这时，两个分支就有了各自不同的修改(diverged)；我们可以通过下面的命令来合并“experimental”和“master”两个分支:
+这时，两个分支就有了各自不同的修改(diverged)；我们可以通过下面的命令来合并"experimental"和"master"两个分支:
 
     $ git merge experimental
 
@@ -51,11 +51,11 @@
 
 执行了gitk后会有一个很漂亮的图形的显示项目的历史。
 
-这时你就可以删除掉你的 “experimental” 分支了(如果愿意)：
+这时你就可以删除掉你的 "experimental" 分支了(如果愿意)：
 
     $ git branch -d experimental
 
-git branch -d只能删除那些已经被当前分支的合并的分支. 如果你要强制删除某个分支的话就用git branch –D；下面假设你要强制删除一个叫”crazy-idea”的分支：
+git branch -d只能删除那些已经被当前分支的合并的分支. 如果你要强制删除某个分支的话就用git branch –D；下面假设你要强制删除一个叫"crazy-idea"的分支：
 
     $ git branch -D crazy-idea
 
@@ -128,6 +128,6 @@ git branch -d只能删除那些已经被当前分支的合并的分支. 如果�
 还有一种需要特殊对待的情况，在前面没有提到。通常，一个合并会产生一个合并提交(commit),
 把两个父分支里的每一行内容都合并进来。
 
-但是，如果当前的分支和另一个分支没有内容上的差异，就是说当前分支的每一个提交(commit)都已经存在另一个分支里了，git 就会执行一个“快速向前"(fast forward)操作；git 不创建任何新的提交(commit),只是将当前分支指向合并进来的分支。
+但是，如果当前的分支和另一个分支没有内容上的差异，就是说当前分支的每一个提交(commit)都已经存在另一个分支里了，git 就会执行一个"快速向前"(fast forward)操作；git 不创建任何新的提交(commit),只是将当前分支指向合并进来的分支。
 
 [gitcast:c6-branch-merge]("GitCast #6: Branching and Merging")

@@ -4,8 +4,8 @@
 
     $ git diff master..test
 
-上面这条命令只显示两个分支间的差异，如果你想找出‘master’,‘test’的共有
-父分支和'test'分支之间的差异，你用3个‘.'来取代前面的两个'.' 。
+上面这条命令只显示两个分支间的差异，如果你想找出'master','test'的共有
+父分支和'test'分支之间的差异，你用3个'.'来取代前面的两个'.' 。
 
     $ git diff master...test
 
@@ -52,7 +52,7 @@ linkgit:git-diff[1] 是一个难以置信的有用的工具，可以找出你项
 
 
 如果不是查看每个文件的详细差别，而是统计一下有哪些文件被改动，有多少行被改
-动，就可以使用‘--stat' 参数。
+动，就可以使用'--stat' 参数。
 
     $>git diff --stat
      layout/book_index_template.html                    |    8 ++-

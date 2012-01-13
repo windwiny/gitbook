@@ -8,10 +8,10 @@
     
 这样，我们可以用stable-1 作为提交(commit) "1b2e1d63ff" 的代称(refer)。
 
-前面这样创建的是一个“轻量级标签"，这种分支通常是从来不移动的。
+前面这样创建的是一个"轻量级标签"，这种分支通常是从来不移动的。
 
 如果你想为一个标签(tag)添加注释，或是为它添加一个签名(sign it cryptographically),
-那么我们就需要创建一个 ”标签对象".
+那么我们就需要创建一个 "标签对象".
 
 
 ### 标签对象 ###
@@ -47,10 +47,10 @@ _~.gitconfig里配好key.
 
     $ git config (--global) user.signingkey <gpg-key-id>
     
-现在你可以直接用"-s" 参数来创“签名的标签”。
+现在你可以直接用"-s" 参数来创"签名的标签"。
 
     $ git tag -s stable-1 1b2e1d63ff
     
-如果没有在配置文件中配GPG key,你可以用"-u“ 参数直接指定。
+如果没有在配置文件中配GPG key,你可以用"-u" 参数直接指定。
     
     $ git tag -u <gpg-key-id> stable-1 1b2e1d63ff

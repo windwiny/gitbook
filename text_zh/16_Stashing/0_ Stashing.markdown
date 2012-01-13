@@ -21,11 +21,11 @@
 
 ### 储藏队列 ###
 
-你也可多次使用'git stash'命令,　每执行一次就会把针对当前修改的‘储藏’(stash)添加到储藏队列中. 用'git stash list'命令可以查看你保存的'储藏'(stashes):
+你也可多次使用'git stash'命令,　每执行一次就会把针对当前修改的'储藏'(stash)添加到储藏队列中. 用'git stash list'命令可以查看你保存的'储藏'(stashes):
 
 	$>git stash list
 	stash@{0}: WIP on book: 51bea1d... fixed images
 	stash@{1}: WIP on master: 9705ae6... changed the browse code to the official repo
 
 
-可以用类似'git stash apply stash@{1}'的命令来使用在队列中的任意一个'储藏'(stashes). 'git stash clear‘则是用来清空这个队列.
+可以用类似'git stash apply stash@{1}'的命令来使用在队列中的任意一个'储藏'(stashes). 'git stash clear'则是用来清空这个队列.

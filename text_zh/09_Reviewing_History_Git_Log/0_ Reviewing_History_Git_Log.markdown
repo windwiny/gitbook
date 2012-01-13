@@ -14,7 +14,7 @@ linkgit:git-log[1]命令可以显示所有的提交(commit)。 ......
     			            # matching the string 'foo()'
     $ git log --no-merges	# dont show merge commits
 
-当然你也可以组合上面的命令选项；下面的命令就是找出所有从"v2.5“开
+当然你也可以组合上面的命令选项；下面的命令就是找出所有从"v2.5"开
 始在fs目录下的所有Makefile的修改.
 
     $ git log v2.5.. Makefile fs/
@@ -78,7 +78,7 @@ Git会根据git log命令的参数，按时间顺序显示相关的提交(commit
 
 ### 格式化日志 ###
 
-你可以按你的要求来格式化日志输出。‘--pretty'参数可以使用若干表现格式，如‘oneline':
+你可以按你的要求来格式化日志输出。'--pretty'参数可以使用若干表现格式，如'oneline':
 
 	$ git log --pretty=oneline
 	a6b444f570558a5f31ab508dc2a24dc34773825f dammit, this is the second time this has reverted
@@ -107,8 +107,8 @@ Git会根据git log命令的参数，按时间顺序显示相关的提交(commit
 
 	    Add diff-lcs dependency
 
-你也可用‘medium','full','fuller','email' 或‘raw'. 如果这些格式不完全符合你的相求，
-你也可以用‘--pretty=format'参数(参见：linkgit:git-log[1])来创建你自己的"格式“.
+你也可用'medium','full','fuller','email' 或'raw'. 如果这些格式不完全符合你的相求，
+你也可以用'--pretty=format'参数(参见：linkgit:git-log[1])来创建你自己的"格式".
 
 	$ git log --pretty=format:'%h was %an, %ar, message: %s'
 	a6b444f was Scott Chacon, 5 days ago, message: dammit, this is the second time this has re
@@ -144,7 +144,7 @@ Git会根据git log命令的参数，按时间顺序显示相关的提交(commit
 按默认情况，提交(commits)会按逆时间(reverse chronological)顺序显示。
 
 
-但是你也可以指定‘--topo-order'参数，这就会让提交(commits)按拓朴顺序来显示(就是子提交在它们的父提交前显示). 如果你用git log命令按拓朴顺序来显示git仓库的提交日志，你会看到“开发线"(development lines)都会集合在一起.
+但是你也可以指定'--topo-order'参数，这就会让提交(commits)按拓朴顺序来显示(就是子提交在它们的父提交前显示). 如果你用git log命令按拓朴顺序来显示git仓库的提交日志，你会看到"开发线"(development lines)都会集合在一起.
 
 	$ git log --pretty=format:'%h : %s' --topo-order --graph
 	*   4a904d7 : Merge branch 'idx2'
@@ -208,6 +208,6 @@ Git会根据git log命令的参数，按时间顺序显示相关的提交(commit
 	| * | | 7569d0d : including code from github updates
 
 
-最后，你也可以用 ‘--reverse'参数来逆向显示所有日志。
+最后，你也可以用 '--reverse'参数来逆向显示所有日志。
 
 [gitcast:c4-git-log]("GitCast #4: Git Log")

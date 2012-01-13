@@ -12,7 +12,7 @@
 	980e3ccdaac54a0d4
 	980e3cc
 
-只要你的‘sha短名’(Partial Sha)是不重复的(unique)，它就不会和其它名字冲突(如果你使用了5个字节以上那是很难重复的)，git也会把‘sha短名’(Partial Sha)自动补全.
+只要你的'sha短名'(Partial Sha)是不重复的(unique)，它就不会和其它名字冲突(如果你使用了5个字节以上那是很难重复的)，git也会把'sha短名'(Partial Sha)自动补全.
 
 
 ### 分支, Remote 或 标签 ###
@@ -39,13 +39,13 @@
 The Ref Log that git keeps will allow you to do some relative stuff locally, 
 such as: 
 
-Git的引用日志(Ref Log)可以让你做一些‘相对'查询操作:
+Git的引用日志(Ref Log)可以让你做一些'相对'查询操作:
 
 	master@{yesterday}
 
 	master@{1 month ago}
 	
-上面的第一条命令是:'master分支的昨天状态(head)的缩写‘. 注意: 即使在两个有相同master分支指向的仓库上执行这条命令, 但是如果这个两个仓库在不同机器上,　那么执行结果也很可能会不一样.
+上面的第一条命令是:'master分支的昨天状态(head)的缩写'. 注意: 即使在两个有相同master分支指向的仓库上执行这条命令, 但是如果这个两个仓库在不同机器上,　那么执行结果也很可能会不一样.
 
 译者注:因为两个不同机器上的仓库的历史一般很难相同.
 
@@ -78,7 +78,7 @@ Git的引用日志(Ref Log)可以让你做一些‘相对'查询操作:
 
 	master^^
 
-你也可以把这些‘标识符'(spec)叠加起来, 下面这个3个表达式都是指向同一个提交(commit):
+你也可以把这些'标识符'(spec)叠加起来, 下面这个3个表达式都是指向同一个提交(commit):
 
 	master^^^^^^
 	master~3^~2
@@ -87,7 +87,7 @@ Git的引用日志(Ref Log)可以让你做一些‘相对'查询操作:
 
 ### 树对象指针 ###
 
-如果大家对第一章[Git对象模型](http://gitbook.liuhui998.com/1_2.html)还有印象的话, 就记得提交对象(commit object)是指向一个树对象(tree object)的. 假如你要得到一个提交对象(commit object)指向的树对象(tree object)的sha串名, 你就可以在‘树名'的后面加上'^{tree}'来得到它:
+如果大家对第一章[Git对象模型](http://gitbook.liuhui998.com/1_2.html)还有印象的话, 就记得提交对象(commit object)是指向一个树对象(tree object)的. 假如你要得到一个提交对象(commit object)指向的树对象(tree object)的sha串名, 你就可以在'树名'的后面加上'^{tree}'来得到它:
 
 	master^{tree}
 

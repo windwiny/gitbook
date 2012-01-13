@@ -255,7 +255,7 @@ Or in a bash script, something like this would work:
  - the old object name stored in the ref, # ref 中更新前的对象名
  - and the new objectname to be stored in the ref. # ref 中更新后的对象名
 
-如果 update hook 的执行结果是零，那么引用(ref)就会被更新。如果执行结果是非零，那么’git-receive-pack'就不会更新这个引用(ref)。
+如果 update hook 的执行结果是零，那么引用(ref)就会被更新。如果执行结果是非零，那么'git-receive-pack'就不会更新这个引用(ref)。
 
 This hook can be used to prevent 'forced' update on certain refs by
 making sure that the object name is a commit object that is a
@@ -356,7 +356,7 @@ transports (e.g., HTTP) up-to-date.  If you are publishing
 a git repository that is accessible via HTTP, you should
 probably enable this hook.
 
-如果默认的'post-update'钩子启用的话，它们执行‘git-update-server-info'命令去更新一些dumb协议(如http)所需要的信息。如果你的git仓库是通http协议来访问，那么你就应该开启它。
+如果默认的'post-update'钩子启用的话，它们执行'git-update-server-info'命令去更新一些dumb协议(如http)所需要的信息。如果你的git仓库是通http协议来访问，那么你就应该开启它。
 
 Both standard output and standard error output are forwarded to
 'git-send-pack' on the other end, so you can simply `echo` messages

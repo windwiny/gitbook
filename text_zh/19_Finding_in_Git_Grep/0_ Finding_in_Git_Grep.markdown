@@ -73,7 +73,7 @@
 	v1.5.0:sha1_file.c:             buf = xmmap(NULL, size, PROT_READ, MAP_PRIVATE, fd
 
 
-我可以看到"1.5.0版"和当前版本间一些区别: 在“1.5.0版"中, xmmap没有在wrapper.c中出现.
+我可以看到"1.5.0版"和当前版本间一些区别: 在"1.5.0版"中, xmmap没有在wrapper.c中出现.
 
 
 我们也可以组合一些搜索条件, 下面的命令就是查找我们在仓库的哪个地方定义了'SORT_DIRENT'.
@@ -83,7 +83,7 @@
 	builtin-fsck.c:#define SORT_DIRENT 1
 
 
-我不但可以进行“与"(*both*)条件搜索操作，也可以进行"或"(*either*)条件搜索操作.
+我不但可以进行"与"(*both*)条件搜索操作，也可以进行"或"(*either*)条件搜索操作.
 
 	$ git grep --all-match -e '#define' -e SORT_DIRENT
 	builtin-fsck.c:#define REACHABLE 0x0001
@@ -98,7 +98,7 @@
 	builtin-fsck.c: if (SORT_DIRENT)
 
 
-我们也可以查找出符合一个条件(term)且符合两个条件(terms)之一的文件行.　例如我们要找出名字中含有‘PATH'或是'MAX'的常量定义:
+我们也可以查找出符合一个条件(term)且符合两个条件(terms)之一的文件行.　例如我们要找出名字中含有'PATH'或是'MAX'的常量定义:
 
 	$ git grep -e '#define' --and \( -e PATH -e MAX \) 
 	abspath.c:#define MAXDEPTH 5
