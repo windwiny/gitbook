@@ -146,7 +146,7 @@ Git也可以像CVS一样来工作：有一个中心仓库，不同的用户向�
     	| you pull                            | they pull
     	|                                     |
     	|                                     |
-            |               they push             V
+        |               they push             V
       their public repo <------------------- their repo
       
 
