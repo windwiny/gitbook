@@ -135,11 +135,12 @@ def md2html(lang):
                     fall.write(html)
                     fall.write('\n')
                 else:
-                    if htmls[0] == '':
-                        del htmls[0]
+                    fall.write(htmls.pop(0))
                     for va in htmls:
                         if not va:
                             print 'Error Format \n'
+                            continue
+                        fall.write('\n')
                         hl = va[0]
                         title = va[2:va.find('</h')]
                         if hl == '1':
@@ -163,7 +164,6 @@ def md2html(lang):
                             continue
                         fall.write('<h%s id="%s"' % (hl, ids))
                         fall.write(va[1:])
-                        fall.write('\n')
 
                 print 'adding', fn
 #                open('%s-%s.html' % (root.replace('\\','_').replace('/','_'), name),
@@ -179,13 +179,13 @@ def md2html(lang):
     for anchor, title, ch, se, pa in anchors:
         fn = os.path.split(fn)[1]
         if se == 0:
-            htmllinks.append('<br /><b><a href="%s#%s" target="content">%d %s</a></b>' %
+            htmllinks.append('<b><a href="%s#%s" target="content">%d %s</a></b><br />' %
                 (fall.name, anchor, ch, title))
         elif pa == 0:
-            htmllinks.append('<br />&nbsp;&nbsp;<a href="%s#%s" target="content">%d.%d %s</a>' %
+            htmllinks.append('&nbsp;&nbsp;<a href="%s#%s" target="content">%d.%d %s</a><br />' %
                 (fall.name, anchor, ch, se, title))
         else:
-            htmllinks.append('<br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="%s#%s" target="content">%d.%d.%d %s</a>' %
+            htmllinks.append('&nbsp;&nbsp;&nbsp;&nbsp;<a href="%s#%s" target="content">%d.%d.%d %s</a><br />' %
                 (fall.name, anchor, ch, se, pa, title))
     writefile('directory_%s.html' % lang, DIRECTORY % '\n'.join(htmllinks))
 
