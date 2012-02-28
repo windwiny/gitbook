@@ -128,32 +128,42 @@ def md2html(lang):
                 html = do_replacements(html)
                 html = html.encode('utf-8')
 
-                x = 0
                 # add anchors
-                for va, hl, title, va2 in re.findall(r'(.*?)<h([123])>(.*?)</h\2>(.*?)', html):
-                    x = 1
-                    if hl == '1':
-                        section, part = 0, 0
-                        charpter += 1
-                        ids = 'ch%d' % (charpter)
-                        anchors.append((ids, title, charpter, section, part))
-                    elif hl == '2':
-                        part = 0
-                        section += 1
-                        ids = 'ch%d-%d' % (charpter, section)
-                        anchors.append((ids, title, charpter, section, part))
-                    elif hl == '3':
-                        part += 1
-                        ids = 'ch%d-%d-%d' % (charpter, section, part)
-                        anchors.append((ids, title, charpter, section, part))
-                    fall.write(va)
-                    fall.write('<h%s id="%s">%s</h%s>\n' % (hl, ids, title, hl))
-                    fall.write(va2)
-                    fall.write('\n')
-                if x == 0:
+                htmls = html.split('<h')
+                if len(htmls) == 1:
                     print 'info 1 todo'
                     fall.write(html)
                     fall.write('\n')
+                else:
+                    if htmls[0] == '':
+                        del htmls[0]
+                    for va in htmls:
+                        if not va:
+                            print 'Error Format \n'
+                        hl = va[0]
+                        title = va[2:va.find('</h')]
+                        if hl == '1':
+                            section, part = 0, 0
+                            charpter += 1
+                            ids = 'ch%d' % (charpter)
+                            anchors.append((ids, title, charpter, section, part))
+                        elif hl == '2':
+                            part = 0
+                            section += 1
+                            ids = 'ch%d-%d' % (charpter, section)
+                            anchors.append((ids, title, charpter, section, part))
+                        elif hl == '3':
+                            part += 1
+                            ids = 'ch%d-%d-%d' % (charpter, section, part)
+                            anchors.append((ids, title, charpter, section, part))
+                        else:
+                            print 'info 2 todo', hl
+                            fall.write('<h')
+                            fall.write(va)
+                            continue
+                        fall.write('<h%s id="%s"' % (hl, ids))
+                        fall.write(va[1:])
+                        fall.write('\n')
 
                 print 'adding', fn
 #                open('%s-%s.html' % (root.replace('\\','_').replace('/','_'), name),
