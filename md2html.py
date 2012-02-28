@@ -18,7 +18,7 @@ INDEX = '''<!DOCTYPE html>
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <title>git book</title>
   </head>
-  <frameset cols="20%%,80%%">
+  <frameset cols="25%%,75%%">
     <frame src="directory_%s.html">
     <frame name="content"src="%s">
     <noframes>
@@ -114,7 +114,7 @@ def do_replacements(html, types='html'):
     return html
 
 def md2html(lang):
-    charpter, section, part = 1, 0, 1
+    charpter, section, part = 0, 0, 0
     anchors = []
 
     i = 0
@@ -126,31 +126,36 @@ def md2html(lang):
                 fn = os.path.join(root, name)
                 html = markdown.markdown(open(fn, 'rb').read().decode('utf-8','replace'))
                 html = do_replacements(html)
-                ss = html[:4]
-                if ss == '<h1>':
-                    title = html[4:html.find('</h1>')]
-                    ids = 'ch%d' % (charpter)
-                    html = '<h1 id="%s">' % ids + html[4:]
-                    anchors.append((ids, title, charpter, section, part))
-                    section, part = 0, 1
-                    charpter += 1
-                elif ss == '<h2>':
-                    title = html[4:html.find('</h2>')]
-                    ids = 'ch%d-%d' % (charpter, section)
-                    html = '<h2 id="%s">' % ids + html[4:]
-                    anchors.append((ids, title, charpter, section, part))
-                    part = 1
-                    section += 1
-                elif ss == '<h3>':
-                    title = html[4:html.find('</h3>')]
-                    ids = 'ch%d-%d-%d' % (charpter, section, part)
-                    html = '<h3 id="%s">' % ids + html[4:]
-                    anchors.append((ids, title, charpter, section, part))
-                    part += 1
+                html = html.encode('utf-8')
+
+                x = 0
+                # add anchors
+                for va, hl, title, va2 in re.findall(r'(.*?)<h([123])>(.*?)</h\2>(.*?)', html):
+                    x = 1
+                    if hl == '1':
+                        section, part = 0, 0
+                        charpter += 1
+                        ids = 'ch%d' % (charpter)
+                        anchors.append((ids, title, charpter, section, part))
+                    elif hl == '2':
+                        part = 0
+                        section += 1
+                        ids = 'ch%d-%d' % (charpter, section)
+                        anchors.append((ids, title, charpter, section, part))
+                    elif hl == '3':
+                        part += 1
+                        ids = 'ch%d-%d-%d' % (charpter, section, part)
+                        anchors.append((ids, title, charpter, section, part))
+                    fall.write(va)
+                    fall.write('<h%s id="%s">%s</h%s>\n' % (hl, ids, title, hl))
+                    fall.write(va2)
+                    fall.write('\n')
+                if x == 0:
+                    print 'info 1 todo'
+                    fall.write(html)
+                    fall.write('\n')
 
                 print 'adding', fn
-                fall.write(html.encode('utf-8'))
-                fall.write('\n')
 #                open('%s-%s.html' % (root.replace('\\','_').replace('/','_'), name),
 #                     'wb').write(html.encode('utf-8'))
 #                print '-> %s-%s.html' % (root.replace('\\','_').replace('/','_'), name)
@@ -166,8 +171,11 @@ def md2html(lang):
         if se == 0:
             htmllinks.append('<br /><b><a href="%s#%s" target="content">%d %s</a></b>' %
                 (fall.name, anchor, ch, title))
+        elif pa == 0:
+            htmllinks.append('<br />&nbsp;&nbsp;<a href="%s#%s" target="content">%d.%d %s</a>' %
+                (fall.name, anchor, ch, se, title))
         else:
-            htmllinks.append('<br />&nbsp;&nbsp;<a href="%s#%s" target="content">%d.%d.%d %s</a>' %
+            htmllinks.append('<br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="%s#%s" target="content">%d.%d.%d %s</a>' %
                 (fall.name, anchor, ch, se, pa, title))
     writefile('directory_%s.html' % lang, DIRECTORY % '\n'.join(htmllinks))
 
